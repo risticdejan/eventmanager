@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Appbar} from 'react-native-paper';
 import HomeScreen2 from './screens/HomeScreen2';
 import HomeScreen from './screens/HomeScreen';
+import {Button} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,11 +16,27 @@ function CustomNavigationBar(props) {
         <Appbar.Action icon="menu" onPress={props.navigation.openDrawer} />
       ) : null}
       <Appbar.Content title={props.route.name} />
+      <Appbar.Action
+        icon="magnify"
+        onPress={() => {
+          props.navigation.setParams({
+            search: !props.route.params?.search,
+          });
+        }}
+      />
+      <Appbar.Action
+        icon="filter"
+        onPress={() => {
+          props.navigation.setParams({
+            filter: !props.route.params?.filter,
+          });
+        }}
+      />
     </Appbar.Header>
   );
 }
 
-export default function HomeStackScreen() {
+export default function HomeStackScreen({navigation}) {
   return (
     <Stack.Navigator
       initialRouteName="Home"

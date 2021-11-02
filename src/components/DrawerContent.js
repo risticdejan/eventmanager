@@ -11,7 +11,6 @@ import {theme} from '../core/theme';
 
 export function DrawerContent(props) {
   const dispatch = useDispatch();
-  console.log(props.navigation.getState());
   const username = useSelector(state => state.auth.username);
 
   return (
@@ -46,9 +45,7 @@ export function DrawerContent(props) {
                 <Icon name="contacts-outline" color={color} size={size} />
               )}
               label="Contact"
-              focused={
-                props.navigation.getState().index == 1
-              }
+              focused={props.navigation.getState().index == 1}
               onPress={() => {
                 props.navigation.navigate('ContactDrawer', {
                   screen: 'Contact',
