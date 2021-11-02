@@ -7,11 +7,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import * as authActions from '../features/auth/actions';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { theme } from '../core/theme';
+import {theme} from '../core/theme';
 
 export function DrawerContent(props) {
   const dispatch = useDispatch();
- console.log(props.navigation.getState());
+  console.log(props.navigation.getState());
   const username = useSelector(state => state.auth.username);
 
   return (
@@ -33,12 +33,25 @@ export function DrawerContent(props) {
                 <Icon name="home-outline" color={color} size={size} />
               )}
               label="Home"
+              focused={props.navigation.getState().index == 0}
+              onPress={() => {
+                props.navigation.navigate('HomeDrawer', {
+                  screen: 'Home',
+                });
+              }}
+              activeTintColor={theme.colors.primary}
+            />
+            <DrawerItem
+              icon={({color, size}) => (
+                <Icon name="contacts-outline" color={color} size={size} />
+              )}
+              label="Contact"
               focused={
-                props.navigation.getState().routeNames[0] == 'HomeDrawer'
+                props.navigation.getState().index == 1
               }
               onPress={() => {
-                props.navigation.navigate('HomeScreen', {
-                  screen: 'Home',
+                props.navigation.navigate('ContactDrawer', {
+                  screen: 'Contact',
                 });
               }}
               activeTintColor={theme.colors.primary}

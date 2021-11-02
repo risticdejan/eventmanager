@@ -1,7 +1,8 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Appbar} from 'react-native-paper';
-import HomeScreen from './HomeScreen';
+import HomeScreen2 from './screens/HomeScreen2';
+import HomeScreen from './screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export default function HomeStackScreen() {
         header: props => <CustomNavigationBar {...props} />,
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Home2" component={HomeScreen2} />
     </Stack.Navigator>
   );
 }

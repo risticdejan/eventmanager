@@ -1,8 +1,17 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
+import Button from '../../../components/Button';
 
 export default function HomeScreen({navigation}) {
-  return <View style={styles.container} />;
+  return (
+    <View style={styles.container}>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Home2')}
+      />
+      <Text>test jej</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

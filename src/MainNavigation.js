@@ -2,10 +2,11 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './features/auth/screens/LoginScreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import HomeStackScreen from './features/home/screens/HomeStackScreen';
+import HomeStackScreen from './features/home/HomeStackScreen';
 import AuthLoadingScreen from './features/auth/screens/AuthLoadingScreen';
 import {DrawerContent} from './components/DrawerContent';
 import {useSelector} from 'react-redux';
+import ContactStackScreen from './features/contact/ContactStackScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,6 +18,7 @@ function DrawerNavigator() {
         headerShown: false,
       }}>
       <Drawer.Screen name="HomeDrawer" component={HomeStackScreen} />
+      <Drawer.Screen name="ContactDrawer" component={ContactStackScreen} />
     </Drawer.Navigator>
   );
 }
